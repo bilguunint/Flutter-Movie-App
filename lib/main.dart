@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_service.dart';
@@ -8,11 +9,13 @@ import 'repositories/movie_repository.dart';
 import 'screens/movies_list.dart';
 
 void main() async {
-  
   final movieRepository = MovieRepository();
   final themeController = ThemeController(ThemeService());
   await themeController.loadSettings();
-  runApp(App(themeController: themeController, movieRepository: movieRepository,));
+  runApp(App(
+    themeController: themeController,
+    movieRepository: movieRepository,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -38,12 +41,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-      appBar: AppBar(title: const Text('Posts')),
-      body: BlocProvider(
-        create: (_) => MovieBloc(movieRepository: movieRepository)..add(MovieFetched()),
-        child: const MoviesList(),
+        appBar: AppBar(title: const Text('Posts')),
+        body: BlocProvider(
+          create: (_) =>
+              MovieBloc(movieRepository: movieRepository)..add(MovieFetched()),
+          child: const MoviesList(),
+        ),
       ),
-    ),
     );
   }
 }

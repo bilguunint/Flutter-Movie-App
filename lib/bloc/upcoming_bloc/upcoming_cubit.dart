@@ -12,8 +12,8 @@ class UpComingCubit extends Cubit<UpComingState> {
 
   Future<void> fetchUpComing() async {
     try {
-      final movie = await repository.getUpComing();
-      emit(UpComingState.success(movie));
+      final movieResponse = await repository.getUpcomingMovies();
+      emit(UpComingState.success(movieResponse.movies));
     } on Exception {
       emit(const UpComingState.failure());
     }

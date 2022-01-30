@@ -5,19 +5,19 @@ enum ListStatus { loading, success, failure }
 class UpComingState extends Equatable {
   const UpComingState._({
     this.status = ListStatus.loading,
-    this.movie = Movie.empty,
+    this.movies = const <Movie>[],
   });
 
   const UpComingState.loading() : this._();
 
-  const UpComingState.success(Movie movie)
-      : this._(status: ListStatus.success, movie: movie);
+  const UpComingState.success(List<Movie> movies)
+      : this._(status: ListStatus.success, movies: movies);
 
   const UpComingState.failure() : this._(status: ListStatus.failure);
 
   final ListStatus status;
-  final Movie movie;
+  final List<Movie> movies;
 
   @override
-  List<Object> get props => [status, movie];
+  List<Object> get props => [status, movies];
 }

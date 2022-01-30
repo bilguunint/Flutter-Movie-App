@@ -31,14 +31,14 @@ class MovieRepository {
     }
   }
 
-  Future<Movie> getUpComing() async {
+  Future<MovieResponse> getUpcomingMovies() async {
     var params = {"api_key": apiKey, "language": "en-US", "page": 1};
     try {
       Response response =
-          await _dio.get(getPopularUrl, queryParameters: params);
-      return Movie.fromJson(response.data["results"][0]);
-    } catch (error) {
-      return Movie.empty;
+          await _dio.get(getUpComingApi, queryParameters: params);
+      return MovieResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");
     }
   }
 

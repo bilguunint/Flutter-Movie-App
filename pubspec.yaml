@@ -42,6 +42,9 @@ dependencies:
   stream_transform: ^2.0.0
   bloc_concurrency: ^0.2.0
   flutter_svg: ^1.0.3
+  shimmer: ^2.0.0
+  page_indicator: ^0.4.1
+  transparent_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:
