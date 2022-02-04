@@ -7,12 +7,12 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
     highlightColor: Colors.white54,
     enabled: true,
     child: SizedBox(
-      height: MediaQuery.of(context).size.height / 2.5,
+      height: MediaQuery.of(context).size.height / 2.3,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 2.5,
+            height: MediaQuery.of(context).size.height / 2.3,
             decoration: const BoxDecoration(
               color: Colors.black12,
             ),

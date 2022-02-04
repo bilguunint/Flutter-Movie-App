@@ -34,7 +34,7 @@ class UpComingView extends StatelessWidget {
         return const Center(child: Text('Oops something went wrong!'));
       case ListStatus.success:
         return SizedBox(
-          height: MediaQuery.of(context).size.height / 2.5,
+          height: MediaQuery.of(context).size.height / 2.4,
           child: Stack(
             children: [
               PageIndicatorContainer(
@@ -59,7 +59,6 @@ class UpComingView extends StatelessWidget {
                               Shimmer.fromColors(
                                 baseColor: Colors.white,
                                 highlightColor: Colors.white54,
-                                enabled: true,
                                 child: AspectRatio(
                                     aspectRatio: 3 / 2,
                                     child: Container(
@@ -70,6 +69,7 @@ class UpComingView extends StatelessWidget {
                               AspectRatio(
                                   aspectRatio: 3 / 2,
                                   child: FadeInImage.memoryNetwork(
+                                    fit: BoxFit.cover,
                                       placeholder: kTransparentImage,
                                       image:
                                           "https://image.tmdb.org/t/p/original/" +
@@ -82,14 +82,12 @@ class UpComingView extends StatelessWidget {
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    Colors.black.withOpacity(0.7),
-                                    Colors.transparent,
                                     Colors.black.withOpacity(0.2),
                                     Colors.black.withOpacity(1.0)
                                   ],
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
-                                  stops: const [0, 0.5, 0.7, 1],
+                                  stops: const [0, 1],
                                 ),
                               ),
                             ),
@@ -120,7 +118,10 @@ class UpComingView extends StatelessWidget {
                                                 ))),
                                           ),
                                         ),
-                                        SizedBox(
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(5.0)
+                                          ),
                                           height: 120.0,
                                           child: AspectRatio(
                                               aspectRatio: 2 / 3,

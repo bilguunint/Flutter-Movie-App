@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
+import 'package:movieapp2/widgets/home_screen_widgets/popular_movies_widgets/popular_movies_widget.dart';
 import 'package:movieapp2/widgets/home_screen_widgets/upcoming_widgets/upcoming_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.zero,
         children: [
           UpComingWidget(
+              movieRepository: widget.movieRepository,
+              themeController: widget.themeController),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text("Popular Movies"),
+          ),
+          PopularMoviesWidget(
               movieRepository: widget.movieRepository,
               themeController: widget.themeController)
         ],

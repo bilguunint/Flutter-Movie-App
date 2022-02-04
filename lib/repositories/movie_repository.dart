@@ -1,6 +1,5 @@
 import 'package:movieapp2/model/cast_response.dart';
 import 'package:movieapp2/model/genre_response.dart';
-import 'package:movieapp2/model/movie.dart';
 import 'package:movieapp2/model/movie_detail_response.dart';
 import 'package:movieapp2/model/movie_response.dart';
 import 'package:dio/dio.dart';
@@ -13,7 +12,9 @@ class MovieRepository {
   final Dio _dio = Dio();
 
   var getUpComingApi = '$mainUrl/movie/upcoming';
-  var getPopularUrl = '$mainUrl/movie/top_rated';
+  var getPopularMoviesApi = '$mainUrl/movie/popular';
+
+  var getMoviesApi = '$mainUrl/movie/top_rated';
   var getMoviesUrl = '$mainUrl/discover/movie';
   var getPlayingUrl = '$mainUrl/movie/now_playing';
   var getGenresUrl = "$mainUrl/genre/movie/list";
@@ -24,7 +25,18 @@ class MovieRepository {
     var params = {"api_key": apiKey, "language": "en-US", "page": page};
     try {
       Response response =
-          await _dio.get(getPopularUrl, queryParameters: params);
+          await _dio.get(getMoviesApi, queryParameters: params);
+      return MovieResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");
+    }
+  }
+
+  Future<MovieResponse> getPopuparMovies(int page) async {
+    var params = {"api_key": apiKey, "language": "en-US", "page": page};
+    try {
+      Response response =
+          await _dio.get(getPopularMoviesApi, queryParameters: params);
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");
