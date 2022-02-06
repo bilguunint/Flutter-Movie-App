@@ -6,7 +6,6 @@ import 'colors.dart';
 class CustomTheme {
   static ThemeData lightTheme = ThemeData(
       fontFamily: 'Nunito',
-      primaryColorBrightness: Brightness.light,
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         titleTextStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
@@ -51,7 +50,6 @@ class CustomTheme {
         backgroundColor: MaterialStateProperty.all(Colors.black),
       )),
       scaffoldBackgroundColor: Colors.black,
-      primaryColorBrightness: Brightness.light,
       splashColor: Colors.black.withOpacity(0.0),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: CustomColors.bottomDarkBack,
