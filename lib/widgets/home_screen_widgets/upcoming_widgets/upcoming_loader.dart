@@ -7,12 +7,12 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
     highlightColor: Colors.white54,
     enabled: true,
     child: SizedBox(
-      height: MediaQuery.of(context).size.height / 2.3,
+      height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 2.3,
+            height: MediaQuery.of(context).size.height / 2.4,
             decoration: const BoxDecoration(
               color: Colors.black12,
             ),
@@ -23,7 +23,7 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
@@ -31,7 +31,8 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
                       child: AspectRatio(
                         aspectRatio: 2 / 3,
                         child: Container(
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.0),
                           color: Colors.black12,
                         )),
                       ),
@@ -45,8 +46,8 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 8,
-                            width: 60,
+                            height: 7,
+                            width: 80,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 color: Colors.black12),
@@ -59,47 +60,7 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
                             children: [
                               Container(
                                 height: 6,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black12),
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              Container(
-                                height: 6,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black12),
-                              ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
-                              Container(
-                                height: 6,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black12),
-                              ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
-                              Container(
-                                height: 6,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: Colors.black12),
-                              ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
-                              Container(
-                                height: 6,
-                                width: double.infinity,
+                                width: 150,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
                                     color: Colors.black12),

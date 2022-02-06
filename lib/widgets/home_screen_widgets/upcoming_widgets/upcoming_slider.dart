@@ -93,18 +93,18 @@ class UpComingView extends StatelessWidget {
                             ),
                           ),
                           Positioned(
-                              bottom: 20.0,
+                              bottom: 0.0,
                               left: 10.0,
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width,
                                 child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Stack(
                                       children: [
                                         Shimmer.fromColors(
-                                          baseColor: Colors.white70,
+                                          baseColor: Colors.white10,
                                           highlightColor: Colors.white30,
                                           enabled: true,
                                           child: SizedBox(
@@ -113,7 +113,8 @@ class UpComingView extends StatelessWidget {
                                                 aspectRatio: 2 / 3,
                                                 child: Container(
                                                     decoration:
-                                                        const BoxDecoration(
+                                                        BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(5.0),
                                                   color: Colors.black12,
                                                 ))),
                                           ),
@@ -125,13 +126,16 @@ class UpComingView extends StatelessWidget {
                                           height: 120.0,
                                           child: AspectRatio(
                                               aspectRatio: 2 / 3,
-                                              child: FadeInImage.memoryNetwork(
-                                                  placeholder:
-                                                      kTransparentImage,
-                                                  image:
-                                                      "https://image.tmdb.org/t/p/w200/" +
-                                                          state.movies[index]
-                                                              .poster)),
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(5.0),
+                                                child: FadeInImage.memoryNetwork(
+                                                    placeholder:
+                                                        kTransparentImage,
+                                                    image:
+                                                        "https://image.tmdb.org/t/p/w200/" +
+                                                            state.movies[index]
+                                                                .poster),
+                                              )),
                                         ),
                                       ],
                                     ),
@@ -144,12 +148,13 @@ class UpComingView extends StatelessWidget {
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Text(
                                             state.movies[index].title,
                                             style: const TextStyle(
                                                 fontSize: 18.0,
-                                                fontWeight: FontWeight.normal),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                           Row(
                                             mainAxisAlignment:
@@ -165,17 +170,6 @@ class UpComingView extends StatelessWidget {
                                                         FontWeight.w200),
                                               ),
                                             ],
-                                          ),
-                                          const SizedBox(
-                                            height: 10.0,
-                                          ),
-                                          Text(
-                                            state.movies[index].overview,
-                                            maxLines: 5,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                                fontSize: 12.0,
-                                                fontWeight: FontWeight.w200),
                                           ),
                                         ],
                                       ),

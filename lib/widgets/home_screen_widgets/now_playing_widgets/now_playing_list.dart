@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movieapp2/bloc/popular_movies_bloc/popular_movies_cubit.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class PopularMoviesList extends StatelessWidget {
-  const PopularMoviesList({Key? key}) : super(key: key);
+import '../../../bloc/now_playing_bloc/now_playing_cubit.dart';
+
+class NowPlayingList extends StatelessWidget {
+  const NowPlayingList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => PopularMovieCubit(
+      create: (_) => NowPlayingCubit(
         repository: context.read<MovieRepository>(),
       )..fetchList(),
-      child: const PopularMovieView(),
+      child: const NowPlayingView(),
     );
   }
 }
 
-class PopularMovieView extends StatelessWidget {
-  const PopularMovieView({Key? key}) : super(key: key);
+class NowPlayingView extends StatelessWidget {
+  const NowPlayingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<PopularMovieCubit>().state;
+    final state = context.watch<NowPlayingCubit>().state;
     switch (state.status) {
       case ListStatus.failure:
         return const Center(child: Text('Oops something went wrong!'));

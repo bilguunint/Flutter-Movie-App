@@ -13,6 +13,8 @@ class MovieRepository {
 
   var getUpComingApi = '$mainUrl/movie/upcoming';
   var getPopularMoviesApi = '$mainUrl/movie/popular';
+  var getTopRatedMoviesApi = '$mainUrl/movie/top_rated';
+  var getNowPlayingMoviesApi = '$mainUrl/movie/now_playing';
 
   var getMoviesApi = '$mainUrl/movie/top_rated';
   var getMoviesUrl = '$mainUrl/discover/movie';
@@ -43,11 +45,33 @@ class MovieRepository {
     }
   }
 
+  Future<MovieResponse> getNowPlaying(int page) async {
+    var params = {"api_key": apiKey, "language": "en-US", "page": page};
+    try {
+      Response response =
+          await _dio.get(getNowPlayingMoviesApi, queryParameters: params);
+      return MovieResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");
+    }
+  }
+
   Future<MovieResponse> getUpcomingMovies() async {
     var params = {"api_key": apiKey, "language": "en-US", "page": 1};
     try {
       Response response =
           await _dio.get(getUpComingApi, queryParameters: params);
+      return MovieResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");
+    }
+  }
+
+  Future<MovieResponse> getTopRatedMovies() async {
+    var params = {"api_key": apiKey, "language": "en-US", "page": 1};
+    try {
+      Response response =
+          await _dio.get(getTopRatedMoviesApi, queryParameters: params);
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");

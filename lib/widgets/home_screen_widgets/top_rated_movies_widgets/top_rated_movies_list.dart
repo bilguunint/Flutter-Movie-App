@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movieapp2/bloc/popular_movies_bloc/popular_movies_cubit.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class PopularMoviesList extends StatelessWidget {
-  const PopularMoviesList({Key? key}) : super(key: key);
+import '../../../bloc/top_rated_movies_bloc/top_rated_movies_cubit.dart';
+
+class TopRatedMoviesList extends StatelessWidget {
+  const TopRatedMoviesList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => PopularMovieCubit(
+      create: (_) => TopRatedCubit(
         repository: context.read<MovieRepository>(),
-      )..fetchList(),
-      child: const PopularMovieView(),
+      )..fetchTopRated(),
+      child: const TopRatedMovieView(),
     );
   }
 }
 
-class PopularMovieView extends StatelessWidget {
-  const PopularMovieView({Key? key}) : super(key: key);
+class TopRatedMovieView extends StatelessWidget {
+  const TopRatedMovieView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<PopularMovieCubit>().state;
+    final state = context.watch<TopRatedCubit>().state;
     switch (state.status) {
       case ListStatus.failure:
         return const Center(child: Text('Oops something went wrong!'));
@@ -39,7 +40,7 @@ class PopularMovieView extends StatelessWidget {
                 Column(
                   children: const <Widget>[
                     Text(
-                      "No More Popular Movies",
+                      "No More Top Rated Movies",
                       style: TextStyle(color: Colors.black45),
                     )
                   ],
