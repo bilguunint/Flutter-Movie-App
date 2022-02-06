@@ -11,6 +11,10 @@ https://www.themoviedb.org/ Register and Login get API Key from Profile > API
 - All you need is here:
 
 		git clone https://github.com/bilguunint/movieapp2.git
+		
+		cd movieapp2
+		
+		flutter run
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
