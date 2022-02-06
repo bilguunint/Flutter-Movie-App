@@ -7,12 +7,12 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
     highlightColor: Colors.white54,
     enabled: true,
     child: SizedBox(
-      height: MediaQuery.of(context).size.height / 2.4,
+      height: MediaQuery.of(context).size.height / 2.8,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height / 2.4,
+            height: MediaQuery.of(context).size.height / 2.8,
             decoration: const BoxDecoration(
               color: Colors.black12,
             ),
@@ -32,7 +32,7 @@ Widget buildLoadingCampaignsWidget(BuildContext context) {
                         aspectRatio: 2 / 3,
                         child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0),
+                          borderRadius: BorderRadius.circular(5.0),
                           color: Colors.black12,
                         )),
                       ),

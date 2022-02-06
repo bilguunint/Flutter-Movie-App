@@ -5,6 +5,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 import '../../../bloc/top_rated_movies_bloc/top_rated_movies_cubit.dart';
+import '../movie_widgets_loader.dart';
 
 class TopRatedMoviesList extends StatelessWidget {
   const TopRatedMoviesList({Key? key}) : super(key: key);
@@ -110,7 +111,7 @@ class TopRatedMovieView extends StatelessWidget {
           );
         }
       default:
-        return Container();
+        return buildMovielistLoaderWidget(context);
     }
   }
 }

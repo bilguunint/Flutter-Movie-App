@@ -5,6 +5,8 @@ import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+import '../movie_widgets_loader.dart';
+
 class PopularMoviesList extends StatelessWidget {
   const PopularMoviesList({Key? key}) : super(key: key);
 
@@ -109,7 +111,7 @@ class PopularMovieView extends StatelessWidget {
           );
         }
       default:
-        return Container();
+        return buildMovielistLoaderWidget(context);
     }
   }
 }

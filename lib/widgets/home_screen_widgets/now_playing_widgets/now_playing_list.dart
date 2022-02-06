@@ -5,6 +5,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 import '../../../bloc/now_playing_bloc/now_playing_cubit.dart';
+import '../movie_widgets_loader.dart';
 
 class NowPlayingList extends StatelessWidget {
   const NowPlayingList({Key? key}) : super(key: key);
@@ -110,7 +111,7 @@ class NowPlayingView extends StatelessWidget {
           );
         }
       default:
-        return Container();
+        return buildMovielistLoaderWidget(context);
     }
   }
 }

@@ -34,7 +34,7 @@ class UpComingView extends StatelessWidget {
         return const Center(child: Text('Oops something went wrong!'));
       case ListStatus.success:
         return SizedBox(
-          height: MediaQuery.of(context).size.height / 2.4,
+          height: MediaQuery.of(context).size.height / 2.8,
           child: Stack(
             children: [
               PageIndicatorContainer(
@@ -69,7 +69,7 @@ class UpComingView extends StatelessWidget {
                               AspectRatio(
                                   aspectRatio: 3 / 2,
                                   child: FadeInImage.memoryNetwork(
-                                    fit: BoxFit.cover,
+                                      fit: BoxFit.cover,
                                       placeholder: kTransparentImage,
                                       image:
                                           "https://image.tmdb.org/t/p/original/" +
@@ -112,22 +112,24 @@ class UpComingView extends StatelessWidget {
                                             child: AspectRatio(
                                                 aspectRatio: 2 / 3,
                                                 child: Container(
-                                                    decoration:
-                                                        BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(5.0),
+                                                    decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                   color: Colors.black12,
                                                 ))),
                                           ),
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(5.0)
-                                          ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0)),
                                           height: 120.0,
                                           child: AspectRatio(
                                               aspectRatio: 2 / 3,
                                               child: ClipRRect(
-                                                borderRadius: BorderRadius.circular(5.0),
+                                                borderRadius:
+                                                    BorderRadius.circular(5.0),
                                                 child: FadeInImage.memoryNetwork(
                                                     placeholder:
                                                         kTransparentImage,
@@ -148,7 +150,8 @@ class UpComingView extends StatelessWidget {
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                            mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Text(
                                             state.movies[index].title,
