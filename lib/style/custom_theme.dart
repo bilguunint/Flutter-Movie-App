@@ -53,8 +53,9 @@ class CustomTheme {
       splashColor: Colors.black.withOpacity(0.0),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: CustomColors.bottomDarkBack,
-          selectedItemColor: CustomColors.mainColor,
-          selectedIconTheme: IconThemeData(color: CustomColors.mainColor),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey.shade700,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
           unselectedIconTheme: const IconThemeData(color: Colors.white)),
       primaryColor: Colors.black,
       dividerColor: Colors.white54,

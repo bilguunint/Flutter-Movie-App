@@ -52,13 +52,13 @@ class NowPlayingView extends StatelessWidget {
         } else {
           return Container(
             height: 150.0,
-            padding: const EdgeInsets.only(left: 10.0),
+            padding: const EdgeInsets.only(left: 8.0),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.movies.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 10.0, right: 15.0),
+                  padding: const EdgeInsets.only(bottom: 10.0, right: 8.0),
                   child: GestureDetector(
                     onTap: () {},
                     child: Column(

@@ -93,15 +93,15 @@ class _MainScreenState extends State<MainScreen> {
                       icon: SizedBox(
                         child: SvgPicture.asset(
                           "assets/icons/home.svg",
-                          color: Colors.white,
+                          color: Colors.grey.shade700,
                           height: 25.0,
                           width: 25.0,
                         ),
                       ),
                       activeIcon: SizedBox(
                         child: SvgPicture.asset(
-                          "assets/icons/home.svg",
-                          color: CustomColors.mainColor,
+                          "assets/icons/home-active.svg",
+                          color: Colors.white,
                           height: 25.0,
                           width: 25.0,
                         ),
@@ -111,14 +111,14 @@ class _MainScreenState extends State<MainScreen> {
                       label: "Genres",
                       icon: SvgPicture.asset(
                         "assets/icons/layers.svg",
-                        color: Colors.white,
+                        color: Colors.grey.shade700,
                         height: 25.0,
                         width: 25.0,
                       ),
                       activeIcon: SizedBox(
                         child: SvgPicture.asset(
-                          "assets/icons/layers.svg",
-                          color: CustomColors.mainColor,
+                          "assets/icons/layers-active.svg",
+                          color: Colors.white,
                           height: 25.0,
                           width: 25.0,
                         ),
@@ -128,14 +128,14 @@ class _MainScreenState extends State<MainScreen> {
                       label: "Search",
                       icon: SvgPicture.asset(
                         "assets/icons/search.svg",
-                        color: Colors.white,
+                        color: Colors.grey.shade700,
                         height: 25.0,
                         width: 25.0,
                       ),
                       activeIcon: SizedBox(
                         child: SvgPicture.asset(
-                          "assets/icons/search.svg",
-                          color: CustomColors.mainColor,
+                          "assets/icons/search-active.svg",
+                          color: Colors.white,
                           height: 25.0,
                           width: 25.0,
                         ),
@@ -145,14 +145,14 @@ class _MainScreenState extends State<MainScreen> {
                       label: "Profile",
                       icon: SvgPicture.asset(
                         "assets/icons/profile.svg",
-                        color: Colors.white,
+                        color: Colors.grey.shade700,
                         height: 25.0,
                         width: 25.0,
                       ),
                       activeIcon: SizedBox(
                         child: SvgPicture.asset(
-                          "assets/icons/profile.svg",
-                          color: CustomColors.mainColor,
+                          "assets/icons/profile-active.svg",
+                          color: Colors.white,
                           height: 25.0,
                           width: 25.0,
                         ),
