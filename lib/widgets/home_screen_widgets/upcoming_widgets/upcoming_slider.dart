@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp2/bloc/upcoming_bloc/upcoming_cubit.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:movieapp2/style/colors.dart';
-import 'package:page_indicator/page_indicator.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -34,50 +32,108 @@ class UpComingView extends StatelessWidget {
       case ListStatus.failure:
         return const Center(child: Text('Oops something went wrong!'));
       case ListStatus.success:
-        return CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: false,
-            viewportFraction: 1.0,
-            aspectRatio: 2/2.6,
-            enlargeCenterPage: true,
-          ),
-          items: state.movies
-    .map((movie) => Stack(
-      children: [
-        AspectRatio(
-          aspectRatio: 2 / 2.6,
-          child: Image.network("https://image.tmdb.org/t/p/w500/" +
-                                        movie.poster, 
+        return Stack(
+          children: [
+            CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: false,
+                viewportFraction: 1.0,
+                aspectRatio: 2 / 2.8,
+                enlargeCenterPage: true,
+              ),
+              items: state.movies
+                  .map((movie) => Stack(
+                        children: [
+                          Stack(
+                            children: [
+                              Shimmer.fromColors(
+                                baseColor: Colors.black87,
+                                highlightColor: Colors.white54,
+                                enabled: true,
+                                child: AspectRatio(
+                                    aspectRatio: 2 / 2.8,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      color: Colors.black12,
+                                    ))),
+                              ),
+                              AspectRatio(
+                                  aspectRatio: 2 / 2.8,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    child: FadeInImage.memoryNetwork(
                                         fit: BoxFit.cover,
                                         alignment: Alignment.bottomCenter,
-                                        ),
-        ),
-        AspectRatio(
-                            aspectRatio: 2 / 2.6,
+                                        placeholder: kTransparentImage,
+                                        image:
+                                            "https://image.tmdb.org/t/p/original/" +
+                                                movie.poster),
+                                  )),
+                            ],
+                          ),
+                          AspectRatio(
+                            aspectRatio: 2 / 2.8,
                             child: Container(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                          begin: Alignment.bottomCenter,
-                          end: Alignment.topCenter,
-                          stops: const [
-                            0.0,
-                            0.4,
-                            0.4,
-                            1.0
-                          ],
-                          colors: [
-                            Colors.black.withOpacity(1.0),
-                            Colors.black.withOpacity(0.0),
-                            Colors.black.withOpacity(0.0),
-                            Colors.black.withOpacity(0.7),
-                          ]),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                    stops: const [
+                                      0.0,
+                                      0.4,
+                                      0.4,
+                                      1.0
+                                    ],
+                                    colors: [
+                                      Colors.black.withOpacity(1.0),
+                                      Colors.black.withOpacity(0.0),
+                                      Colors.black.withOpacity(0.0),
+                                      Colors.black.withOpacity(0.7),
+                                    ]),
                               ),
                             ),
                           ),
-        
-      ],
-    ))
-    .toList(),
+                          Positioned(
+                              top: 5.0,
+                              right: 10.0,
+                              child: SafeArea(
+                                child: Column(
+                                  children: [
+                                    const Text(
+                                      "Release date: ",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12.0,
+                                      ),
+                                    ),
+                                    Text(
+                                      movie.releaseDate,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12.0,
+                                          color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                        ],
+                      ))
+                  .toList(),
+            ),
+            Positioned(
+                left: 10.0,
+                top: 10.0,
+                child: SafeArea(
+                  child: Text(
+                    "Upcoming movies",
+                    style: TextStyle(
+                        fontFamily: 'NunitoBold',
+                        fontSize: 18.0,
+                        color: Colors.white.withOpacity(0.5)),
+                  ),
+                )),
+          ],
         );
       default:
         return buildLoadingCampaignsWidget(context);
