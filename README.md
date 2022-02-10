@@ -6,7 +6,7 @@
 
 ## Usage
 
-https://www.themoviedb.org/ Register and Login get API Key from Profile > API
+https://www.themoviedb.org/ Register and Login get API Key from Profile > Settings > API
 
 - All you need is here:
 
