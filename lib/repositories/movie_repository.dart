@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:movieapp2/model/cast_response.dart';
 import 'package:movieapp2/model/genre_response.dart';
+import 'package:movieapp2/model/movie_detail.dart';
 import 'package:movieapp2/model/movie_detail_response.dart';
 import 'package:movieapp2/model/movie_response.dart';
 import 'package:dio/dio.dart';
@@ -26,8 +29,7 @@ class MovieRepository {
   Future<MovieResponse> getMovies(int page) async {
     var params = {"api_key": apiKey, "language": "en-US", "page": page};
     try {
-      Response response =
-          await _dio.get(getMoviesApi, queryParameters: params);
+      Response response = await _dio.get(getMoviesApi, queryParameters: params);
       return MovieResponse.fromJson(response.data);
     } catch (error, stacktrace) {
       return MovieResponse.withError("Error: $error, StackTrace: $stacktrace");

@@ -21,7 +21,10 @@ class _TopRatedMoviesWidgetState extends State<TopRatedMoviesWidget> {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: widget.movieRepository,
-      child: const TopRatedMoviesList(),
+      child: TopRatedMoviesList(
+        themeController: widget.themeController,
+        movieRepository: widget.movieRepository,
+      ),
     );
   }
 }

@@ -41,8 +41,7 @@ class CustomTheme {
         titleTextStyle:
             const TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
         systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-            statusBarColor: Colors.white),
+            statusBarBrightness: Brightness.dark, statusBarColor: Colors.white),
       ),
       buttonTheme: const ButtonThemeData(buttonColor: Colors.white),
       elevatedButtonTheme: ElevatedButtonThemeData(

@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movieapp2/bloc/bottom_navbar_bloc.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
-import 'package:movieapp2/style/colors.dart';
 
 import 'home_screen/home_screen.dart';
 

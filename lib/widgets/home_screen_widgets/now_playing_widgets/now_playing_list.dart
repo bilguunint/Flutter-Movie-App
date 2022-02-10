@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:movieapp2/widgets/home_screen_widgets/movies_list_horizontal.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:transparent_image/transparent_image.dart';
-
 import '../../../bloc/now_playing_bloc/now_playing_cubit.dart';
 import '../movie_widgets_loader.dart';
 
 class NowPlayingList extends StatelessWidget {
-  const NowPlayingList({Key? key}) : super(key: key);
+  const NowPlayingList(
+      {Key? key, required this.themeController, required this.movieRepository})
+      : super(key: key);
+  final ThemeController themeController;
+  final MovieRepository movieRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +19,20 @@ class NowPlayingList extends StatelessWidget {
       create: (_) => NowPlayingCubit(
         repository: context.read<MovieRepository>(),
       )..fetchList(),
-      child: const NowPlayingView(),
+      child: NowPlayingView(
+        themeController: themeController,
+        movieRepository: movieRepository,
+      ),
     );
   }
 }
 
 class NowPlayingView extends StatelessWidget {
-  const NowPlayingView({Key? key}) : super(key: key);
+  const NowPlayingView(
+      {Key? key, required this.themeController, required this.movieRepository})
+      : super(key: key);
+  final ThemeController themeController;
+  final MovieRepository movieRepository;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +60,11 @@ class NowPlayingView extends StatelessWidget {
             ),
           );
         } else {
-          return MoviesListHorizontal(movies: state.movies);
+          return MoviesListHorizontal(
+            movies: state.movies,
+            movieRepository: movieRepository,
+            themeController: themeController,
+          );
         }
       default:
         return buildMovielistLoaderWidget(context);

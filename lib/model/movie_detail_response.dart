@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'movie_detail.dart';
 
 class MovieDetailResponse {
@@ -6,7 +8,7 @@ class MovieDetailResponse {
 
   MovieDetailResponse(this.movieDetail, this.error);
 
-  MovieDetailResponse.fromJson(Map<String, dynamic> json)
+  MovieDetailResponse.fromJson(dynamic json)
       : movieDetail = MovieDetail.fromJson(json),
         error = "";
 

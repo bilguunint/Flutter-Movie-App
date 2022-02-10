@@ -22,7 +22,10 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
   Widget build(BuildContext context) {
     return RepositoryProvider.value(
       value: widget.movieRepository,
-      child: const PopularMoviesList(),
+      child: PopularMoviesList(
+        themeController: widget.themeController,
+        movieRepository: widget.movieRepository,
+      ),
     );
   }
 }

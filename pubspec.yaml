@@ -46,6 +46,8 @@ dependencies:
   page_indicator: ^0.4.1
   transparent_image: ^2.0.0
   carousel_slider: ^4.0.0
+  json_annotation: ^4.4.0
+  eva_icons_flutter: ^3.0.2
 
 dev_dependencies:
   flutter_test:

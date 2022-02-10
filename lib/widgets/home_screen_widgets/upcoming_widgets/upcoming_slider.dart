@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:movieapp2/bloc/upcoming_bloc/upcoming_cubit.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -50,13 +51,13 @@ class UpComingView extends StatelessWidget {
                                 baseColor: Colors.black87,
                                 highlightColor: Colors.white54,
                                 enabled: true,
-                                child: AspectRatio(
+                                child: const AspectRatio(
                                     aspectRatio: 2 / 2.8,
-                                    child: Container(
-                                        decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      color: Colors.black12,
-                                    ))),
+                                    child: Icon(
+                                      FontAwesome5.film,
+                                      color: Colors.black26,
+                                      size: 40.0,
+                                    )),
                               ),
                               AspectRatio(
                                   aspectRatio: 2 / 2.8,
