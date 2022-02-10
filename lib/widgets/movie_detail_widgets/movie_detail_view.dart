@@ -1,12 +1,17 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:movieapp2/bloc/movie_detail_bloc/movie_detail_cubit.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
 import 'package:movieapp2/widgets/home_screen_widgets/movie_widgets_loader.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
+
+import 'cast_widget_loader.dart';
+import 'movie_casts_widget.dart';
+import 'similar_movies_widget.dart';
 
 class MovieDetailView extends StatelessWidget {
   const MovieDetailView(
@@ -26,17 +31,30 @@ class MovieDetailView extends StatelessWidget {
         create: (_) => MovieDetailCubit(
           repository: context.read<MovieRepository>(),
         )..fetchMovie(movieId),
-        child: const DetailView(),
+        child: DetailView(
+          movieId: movieId,
+          movieRepository: movieRepository,
+          themeController: themeController,
+        ),
       ),
     );
   }
 }
 
 class DetailView extends StatelessWidget {
-  const DetailView({Key? key}) : super(key: key);
+  const DetailView(
+      {Key? key,
+      required this.movieId,
+      required this.themeController,
+      required this.movieRepository})
+      : super(key: key);
+  final ThemeController themeController;
+  final MovieRepository movieRepository;
+  final int movieId;
 
   @override
   Widget build(BuildContext context) {
+    final currencyFormatter = NumberFormat();
     final state = context.watch<MovieDetailCubit>().state;
 
     switch (state.status) {
@@ -261,14 +279,148 @@ class DetailView extends StatelessWidget {
                       style: const TextStyle(
                           height: 1.5,
                           fontSize: 12.0,
-                          fontWeight: FontWeight.w300))
+                          fontWeight: FontWeight.w300)),
                 ],
               ),
-            )
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              decoration: BoxDecoration(color: Colors.white.withOpacity(0.05)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("CASTS",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.0,
+                          color: Colors.white.withOpacity(0.5))),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  RepositoryProvider.value(
+                    value: movieRepository,
+                    child: MovieCasts(
+                      themeController: themeController,
+                      movieRepository: movieRepository,
+                      movieId: movieId,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Text("ABOUT MOVIE",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0,
+                      color: Colors.white.withOpacity(0.5))),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Status:",
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white.withOpacity(0.5))),
+                      Text(state.movie.status,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.0,
+                          ))
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Budget:",
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white.withOpacity(0.5))),
+                      Text("\$" + currencyFormatter.format(state.movie.budget),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.0,
+                          ))
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Revenue:",
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white.withOpacity(0.5))),
+                      Text("\$" + currencyFormatter.format(state.movie.revenue),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.0,
+                          ))
+                    ],
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Container(
+              
+              decoration: BoxDecoration(color: Colors.white.withOpacity(0.05)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                    child: Text("SIMILAR MOVIES",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.0,
+                            color: Colors.white.withOpacity(0.5))),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 2.0),
+                    child: RepositoryProvider.value(
+                      value: movieRepository,
+                      child: SimilarMoviesWidget(
+                        themeController: themeController,
+                        movieRepository: movieRepository,
+                        movieId: movieId,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
           ],
         );
       default:
-        return buildMovielistLoaderWidget(context);
+        return buildCastslistLoaderWidget(context);
     }
   }
 

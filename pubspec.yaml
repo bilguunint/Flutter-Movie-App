@@ -48,6 +48,7 @@ dependencies:
   carousel_slider: ^4.0.0
   json_annotation: ^4.4.0
   eva_icons_flutter: ^3.0.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
+    - assets/img/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
