@@ -12,7 +12,7 @@ https://www.themoviedb.org/ Register and Login get API Key from Profile > Settin
 
 		git clone https://github.com/bilguunint/Flutter-Movie-App.git
 		
-		cd movieapp2
+		cd Flutter-Movie-App
 		
 		flutter run
 
