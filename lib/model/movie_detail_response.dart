@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'movie_detail.dart';
 
 class MovieDetailResponse {

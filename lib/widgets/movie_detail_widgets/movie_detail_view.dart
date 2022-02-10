@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:movieapp2/bloc/movie_detail_bloc/movie_detail_cubit.dart';
 import 'package:movieapp2/bloc/theme_bloc/theme_controller.dart';
 import 'package:movieapp2/repositories/movie_repository.dart';
-import 'package:movieapp2/widgets/home_screen_widgets/movie_widgets_loader.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:transparent_image/transparent_image.dart';
 

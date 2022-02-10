@@ -11,7 +11,6 @@ class MovieDetailCubit extends Cubit<MovieDetailState> {
   final MovieRepository repository;
 
   Future<void> fetchMovie(int id) async {
-    print(id);
     try {
       final movieResponse = await repository.getMovieDetail(id);
 

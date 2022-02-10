@@ -1,8 +1,5 @@
-import 'dart:convert';
-
 import 'package:movieapp2/model/cast_response.dart';
 import 'package:movieapp2/model/genre_response.dart';
-import 'package:movieapp2/model/movie_detail.dart';
 import 'package:movieapp2/model/movie_detail_response.dart';
 import 'package:movieapp2/model/movie_response.dart';
 import 'package:dio/dio.dart';

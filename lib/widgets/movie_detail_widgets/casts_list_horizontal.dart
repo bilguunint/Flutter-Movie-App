@@ -99,7 +99,7 @@ class CastsListHorizontal extends StatelessWidget {
                     right: 3.0,
                     child: SizedBox(
                       width: 80.0,
-                      child: Text(casts[index].name, style: TextStyle(
+                      child: Text(casts[index].name, style: const TextStyle(
                         fontSize: 10.0
                       ),),
                     ))
