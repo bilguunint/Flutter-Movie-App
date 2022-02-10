@@ -10,7 +10,7 @@ https://www.themoviedb.org/ Register and Login get API Key from Profile > Settin
 
 - All you need is here:
 
-		git clone https://github.com/bilguunint/movieapp2.git
+		git clone https://github.com/bilguunint/Flutter-Movie-App.git
 		
 		cd movieapp2
 		
