@@ -15,7 +15,7 @@
 
 https://www.themoviedb.org/ Register and Login get API Key from Profile > Settings > API
 
-lib/repositories/movie_repository.dart
+lib/repositories/movie_repository.dart -> You can set your API key here.
 
 ```ruby
 class MovieRepository {
