@@ -15,6 +15,15 @@
 
 https://www.themoviedb.org/ Register and Login get API Key from Profile > Settings > API
 
+lib/repositories/movie_repository.dart
+
+```ruby
+class MovieRepository {
+  final String apiKey = "<<Here is your API key>>";
+  static String mainUrl = "https://api.themoviedb.org/3";
+}
+```
+
 - All you need is here:
 
 		git clone https://github.com/bilguunint/Flutter-Movie-App.git
