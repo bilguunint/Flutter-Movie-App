@@ -3,13 +3,8 @@
 ## Screenshots
 
 <p float="left">
-  <img src="https://firebasestorage.googleapis.com/v0/b/lookbookmn.appspot.com/o/movie_screen1.png?alt=media&token=28011e97-1b7f-4528-8ff5-e5fe7abc77f3" width="350">
-   <img src="https://firebasestorage.googleapis.com/v0/b/lookbookmn.appspot.com/o/movie_screen2.png?alt=media&token=58d94dc2-84f0-4df9-b70d-c8cbe25f3b7b" width="350">
+  <img src="https://i.ibb.co/XSZV3Sr/Screenshot-2024-01-08-150040.png">
 </p>
-
-## Video
-
-[![Flutter Movie App v2 - BLoC, RxDart, JSON API](https://i.ytimg.com/vi/ADN9V03ePNw/sddefault.jpg)](https://www.youtube.com/watch?v=ADN9V03ePNw "Flutter Movie App v2 - BLoC, RxDart, JSON API")
 
 ## Usage
 
